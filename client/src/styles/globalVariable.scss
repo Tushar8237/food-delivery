@@ -1,0 +1,115 @@
+$desktop-content-width: 90rem;
+$background-width: 100%;
+
+$white: #ffffff;
+$primary-color: #1446f5;
+$secondary-color: #4f546b;
+$tertiary-color: #e45323;
+
+$body-darkest-color: #022626;
+$body-dark-color: #11403b;
+$body-medium-color: #6ed190;
+$body-medium-color-2: #149409;
+$body-light-color: #e4f3e7;
+$body-lighest-color: rgba(228, 243, 231, 0.32);
+
+$font-darkest-color: #11403b;
+$font-dark-color: #132624;
+$font-medium-color: #6ed190;
+$font-light-color: #e4f3e7;
+$font-lighest-color: #f4f4f4;
+$orange-color: #a62a2a;
+
+$page-width-xl: 90rem;
+$page-width-lg: 1050px;
+$page-width-md: 750px;
+$page-width-sm: 500px;
+
+$error-color: #ff9494;
+
+$option-highlight-color: #f5f5f5;
+
+$mobile-breakpoint: 550px;
+
+.colorPrimary {
+  color: $font-darkest-color;
+}
+
+.colorSecondary {
+  color: $font-dark-color;
+}
+
+.colorTertiary {
+  color: $tertiary-color;
+}
+
+@mixin heading-styles-lato {
+  font-family: var(--font-lato);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+@mixin heading-styles-poppins {
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+@mixin text-styles-poppins {
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@mixin text-styles-lato {
+  font-family: var(--font-lato);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@mixin course-instructor-icon {
+  position: absolute;
+  border-radius: 3.125rem;
+  height: 1.875rem;
+  width: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+@mixin course-cover-instructor-icons {
+  position: absolute;
+  border-radius: 3.125rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+@mixin form-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: var(--font-poppins);
+  border: 1px solid #e2e2e2;
+  height: 42px;
+  color: $font-darkest-color;
+}
+
+@mixin input-errored {
+  border-color: $error-color;
+}
+
+@mixin form-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: $font-dark-color;
+}

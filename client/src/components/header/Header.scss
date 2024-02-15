@@ -1,0 +1,156 @@
+@import "../../styles/globalVariable.scss";
+
+.header_wrapper {
+  padding: 0;
+
+  .header_cover {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+.header_section {
+  max-width: $page-width-xl;
+  margin: 0 auto;
+
+  .header_topSection {
+    display: flex;
+    padding: 1.2rem 8rem;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      color: $white;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+
+    .header_userIcon {
+        width: 2.5rem;
+        background-color: $white;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+
+  .header_bottomSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 3rem;
+
+    h2 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      color: $white;
+      font-size: 4rem;
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      color: $white;
+      font-size: 2.2rem;
+      margin: 1rem 0;
+    }
+
+    div {
+      background-color: $white;
+      padding: 0.5rem;
+      border-radius: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 50%;
+
+      .header_bottomLeft {
+        max-width: 22%;
+        input {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: gray;
+            outline: none;
+            border: none;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        img {
+          width: 1.2rem;
+          height: 1.2rem;
+          margin-right: 0.5rem;
+        }
+      }
+
+      .header_bottomRight {
+        width: 100%;
+
+        .header_searchBarIcon {
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-right: 0.5rem;
+
+        }
+
+        input {
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          color: gray;
+          outline: none;
+          border: none;
+          font-size: 0.9rem;
+          width: 100%;
+
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+    .header_section {
+        .header_topSection {
+            padding: 2rem 1rem 0 1rem;
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .header_bottomSection {
+            margin-top: 2rem;
+            
+            h2 {
+              font-size: 4rem;
+              margin-bottom: 1rem;
+            }
+        
+            p {
+              font-size: 2rem;
+              margin: 1rem;
+              text-align: center;
+            }
+        
+            div {
+              width: 80%;
+            }
+        }
+    }
+}
