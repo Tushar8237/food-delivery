@@ -1,13 +1,13 @@
 import React from "react";
 import "./Header.scss";
 import coverImg from "../../assets/cover-img.png";
-import { getIconPath, IconName } from "../../../utils/getIconPath";
+import { getIconPath, IconName } from "../../utils/getIconPath";
 
 export default function Header() {
   let currentUser = true;
   return (
     <main className="header_wrapper">
-      <img src={coverImg} alt="cover" className="header_cover" />
+      <img src={coverImg} alt="cover" className="header_cover" /> 
       <section className="header_section">
         <div className="header_topSection">
           <h2 variant="body1" color="white" fontWeight="bold">

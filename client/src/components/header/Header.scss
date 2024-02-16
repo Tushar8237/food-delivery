@@ -2,6 +2,8 @@
 
 .header_wrapper {
   padding: 0;
+  position: relative;
+  margin-bottom: 10rem;
 
   .header_cover {
     height: 30rem;
@@ -125,6 +127,9 @@
 }
 
 @media only screen and (max-width: 750px) {
+    .header_wrapper {
+      margin-bottom: 6rem;
+    }
     .header_section {
         .header_topSection {
             padding: 2rem 1rem 0 1rem;

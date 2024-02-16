@@ -1,0 +1,17 @@
+@import "../../src/styles/globalVariable.scss";
+
+.home_wrapper {
+    padding: 0;
+}
+
+.home_section {
+    max-width: $page-width-xl;
+    margin: 0 auto;
+    padding: 0 8rem 5rem 8rem;
+}
+
+@media only screen and (max-width: 750px) {
+    .home_section {
+        padding: 0 1rem;
+    }
+}
