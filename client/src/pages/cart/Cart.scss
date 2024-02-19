@@ -1,0 +1,26 @@
+@import "../../styles/globalVariable.scss";
+
+.cart_wrapper {
+    background: #60b246;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    p,
+    span {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        color: $white; 
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cart_icon {
+        width: 1.5rem;
+        margin: 0 0.5rem;
+    }
+}

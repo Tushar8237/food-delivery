@@ -3,8 +3,9 @@
 .header_wrapper {
   padding: 0;
   position: relative;
-  margin-bottom: 10rem;
-
+  // margin-bottom: 10rem;
+  margin-bottom: 5rem;
+  
   .header_cover {
     height: 30rem;
     width: 100%;
@@ -28,19 +29,25 @@
     align-items: center;
     justify-content: space-between;
 
-    h2 {
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
+    .header_logo {
+      text-decoration: none;
       color: $white;
       font-size: 2.5rem;
-      cursor: pointer;
+
+      h2 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: $white;
+        font-size: 2.5rem;
+        cursor: pointer;
+      }
     }
 
     .header_userIcon {
-        width: 2.5rem;
-        background-color: $white;
-        border-radius: 50%;
-        cursor: pointer;
+      width: 2.5rem;
+      background-color: $white;
+      border-radius: 50%;
+      cursor: pointer;
     }
 
     p {
@@ -85,13 +92,13 @@
       .header_bottomLeft {
         max-width: 22%;
         input {
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            color: gray;
-            outline: none;
-            border: none;
-            font-size: 0.9rem;
-            width: 100%;
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          color: gray;
+          outline: none;
+          border: none;
+          font-size: 0.9rem;
+          width: 100%;
         }
 
         img {
@@ -108,7 +115,6 @@
           width: 1.5rem;
           height: 1.5rem;
           margin-right: 0.5rem;
-
         }
 
         input {
@@ -119,7 +125,6 @@
           border: none;
           font-size: 0.9rem;
           width: 100%;
-
         }
       }
     }
@@ -127,35 +132,35 @@
 }
 
 @media only screen and (max-width: 750px) {
-    .header_wrapper {
-      margin-bottom: 6rem;
-    }
-    .header_section {
-        .header_topSection {
-            padding: 2rem 1rem 0 1rem;
+  .header_wrapper {
+    margin-bottom: 6rem;
+  }
+  .header_section {
+    .header_topSection {
+      padding: 2rem 1rem 0 1rem;
 
-            h2 {
-                font-size: 2rem;
-            }
-        }
-
-        .header_bottomSection {
-            margin-top: 2rem;
-            
-            h2 {
-              font-size: 4rem;
-              margin-bottom: 1rem;
-            }
-        
-            p {
-              font-size: 2rem;
-              margin: 1rem;
-              text-align: center;
-            }
-        
-            div {
-              width: 80%;
-            }
-        }
+      h2 {
+        font-size: 2rem;
+      }
     }
+
+    .header_bottomSection {
+      margin-top: 2rem;
+
+      h2 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 2rem;
+        margin: 1rem;
+        text-align: center;
+      }
+
+      div {
+        width: 80%;
+      }
+    }
+  }
 }

@@ -2,17 +2,20 @@ import React from "react";
 import "./Header.scss";
 import coverImg from "../../assets/cover-img.png";
 import { getIconPath, IconName } from "../../utils/getIconPath";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   let currentUser = true;
   return (
     <main className="header_wrapper">
-      <img src={coverImg} alt="cover" className="header_cover" /> 
+      <img src={coverImg} alt="cover" className="header_cover" />
       <section className="header_section">
         <div className="header_topSection">
-          <h2 variant="body1" color="white" fontWeight="bold">
-            fooD deliverY
-          </h2>
+          <Link to='/' className="header_logo">
+            <h2 variant="body1" color="white" fontWeight="bold">
+              fooD deliverY
+            </h2>
+          </Link>
           {currentUser ? (
             <img
               src={getIconPath(IconName.AVATAR)}

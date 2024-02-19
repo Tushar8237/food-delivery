@@ -3,6 +3,10 @@
 
 .restaurants_wrapper {
     margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     h2 {
         font-family: "Poppins", sans-serif;
         font-weight: 400;
@@ -14,8 +18,12 @@
     .restaurant_cardWrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 0;
+        column-gap: 2rem;
         row-gap: 2rem;
+
+        .restaurant_cardLink {
+            text-decoration: none;
+        }
 
         .restaurant_card {
             max-width: 20.625rem;

@@ -1,0 +1,282 @@
+@import "../../styles/globalVariable.scss";
+
+.checkout_wrapper {
+    padding: 0;
+}
+
+.checkout_section {
+    max-width: $page-width-xl;
+    margin: 0 auto;
+    background: #e9ecee;
+    padding: 3rem;
+    display: flex;
+    
+    .checkout_left {
+        width: 50%;
+        .checkout_leftTop {
+            background: $white;
+            padding: 2rem;
+
+            .checkout_leftRestro {
+                display: flex;
+                margin-bottom: 1.5rem;
+                border-bottom: 0.5px solid lightgray;
+    
+                div {
+                    img {
+                        width: 70px;
+                        object-fit: cover;
+                        margin-right: 1rem;
+                    }
+    
+                    h3 {
+                        font-family: "Poppins", sans-serif;
+                        font-weight: 500;
+                        color: rgb(53, 53, 53); 
+                        font-size: 1.2rem;
+                    }
+    
+                    span {
+                        font-family: "Poppins", sans-serif;
+                        font-weight: 300;
+                        color: rgb(53, 53, 53); 
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+    
+            .checkout_leftItems {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+    
+                .checkout_leftItemsLeft {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                    }
+                    p {
+                        font-family: "Poppins", sans-serif;
+                        font-weight: 400;
+                        color: rgb(53, 53, 53); 
+                        font-size: 1rem;
+                        margin: 0 1rem;
+                    }
+                }
+    
+                .checkout_leftItemsRight {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    div {
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid rgb(53, 53, 53);
+        
+        
+                        span {
+                            font-family: "Poppins", sans-serif;
+                            font-weight: 400;
+                            color: rgb(53, 53, 53); 
+                            font-size: 1.2rem;
+                            margin: 0 1rem;
+                        }
+        
+                        strong {
+                            font-family: "Poppins", sans-serif;
+                            font-weight: 400;
+                        }
+                    }
+    
+                    p {
+                        font-family: "Poppins", sans-serif;
+                        font-weight: 400;
+                        color: rgb(53, 53, 53); 
+                        font-size: 1rem;
+                        margin: 0 1rem;
+                    }
+    
+                }
+            }
+            .checkout_leftBill {
+                margin-bottom: 1.5rem;
+                .checkout_leftBillDetails{
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 500;
+                    color: rgb(0, 0, 0); 
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                }
+    
+                div {
+                    margin-bottom: 1rem;
+                    display: flex;
+                    justify-content: space-between;
+    
+                    p,span {
+                        font-family: "Poppins", sans-serif;
+                        font-weight: 400;
+                        color: rgb(53, 53, 53); 
+                        font-size: 1rem;
+                    }
+                }
+            }
+    
+            .checkout_leftTotal {
+                display: flex;
+                justify-content: space-between;
+                padding: 1rem 0;
+                border-top: 3px solid grey;
+    
+                span {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 600;
+                    color: rgb(53, 53, 53); 
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+
+    .checkout_right {
+        width: 50%;
+
+        .checkout_rightTop {
+            background: $white;
+            padding: 2rem;
+            margin-left: 2.5rem;
+
+
+            .checkout_rightDelivery {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h3,
+                span {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                    color: rgb(53, 53, 53); 
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                }
+            }
+
+            .checkout_rightAddress {
+                margin-top: 2rem;
+                h3{
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                    color: rgb(53, 53, 53); 
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                }
+                p {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                    color: rgb(53, 53, 53); 
+                    font-size: 1rem;
+                    margin: 0.3rem 0 0.5rem 0;
+                }
+
+                span {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 600;
+                    color: rgb(53, 53, 53); 
+                    font-size: 1rem;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+
+        .checkout_rightBottom {
+            margin-top: 2rem;
+            background: $white;
+            padding: 2rem;
+            margin-left: 2.5rem;
+
+
+            h3 {
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                color: rgb(53, 53, 53); 
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+
+            div {
+                padding: 1rem;
+                display: flex;
+                justify-content: center;
+                color: $white;
+                background: #60b246;
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .checkout_section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+
+        .checkout_left {
+            width: 100%;
+            .checkout_leftTop {
+               .checkout_leftItems {
+                    .checkout_leftItemsLeft {
+                        img {
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                        p {
+                            font-size: 0.9rem;
+                        }
+                    }
+                    .checkout_leftItemsRight {
+                        div {
+                            span {
+                               font-size: 1rem;
+                            }
+                        }
+                        p {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+                .checkout_leftBill {
+                    .checkout_leftBillDetails{
+                        font-size: 0.9rem;
+                        margin-bottom: 1rem;
+                    }
+                    div {
+                       p,span {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .checkout_right {
+            width: 100%;
+            margin-top: 1rem;
+            .checkout_rightTop {
+                margin-left: 0;
+            }
+            .checkout_rightBottom {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    }
+}
