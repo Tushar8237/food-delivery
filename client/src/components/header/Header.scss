@@ -4,8 +4,8 @@
   padding: 0;
   position: relative;
   // margin-bottom: 10rem;
-  margin-bottom: 5rem;
-  
+  // margin-bottom: 5rem;
+
   .header_cover {
     height: 30rem;
     width: 100%;
@@ -22,6 +22,8 @@
 .header_section {
   max-width: $page-width-xl;
   margin: 0 auto;
+  height: 30rem;
+  position: relative;
 
   .header_topSection {
     display: flex;
@@ -43,18 +45,50 @@
       }
     }
 
+    .header_right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .header_add_restro {
+        text-decoration: none;
+        p {
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          color: rgb(255, 255, 255);
+          margin: 0.2rem 0;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .header_signin {
+      text-decoration: none;
+        p {
+          font-family: "Poppins", sans-serif;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
+          margin: 0.2rem 0;
+          font-size: 1rem;
+        }
+    }
+
     .header_userIcon {
-      width: 2.5rem;
+      width: 3rem;
       background-color: $white;
       border-radius: 50%;
       cursor: pointer;
     }
 
-    p {
-      font-family: "Poppins", sans-serif;
-      font-weight: 400;
-      color: $white;
-      cursor: pointer;
+    .header_sign {
+      text-decoration: none;
+
+      p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        color: $white;
+        cursor: pointer;
+      }
     }
   }
 
@@ -127,6 +161,34 @@
           width: 100%;
         }
       }
+    }
+  }
+
+  .header_popUp {
+    position: absolute;
+    right: 8rem;
+    top: 5rem;
+    width: 8rem;
+    background: $white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    .header_profile {
+      text-decoration: none;
+      p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        color: rgb(43, 42, 42);
+        margin: 0.2rem 0;
+      }
+    }
+
+    button {
+      padding: 0.1rem 0.8rem;
+      margin: 0.2rem 0;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      color: rgb(255, 0, 0);
     }
   }
 }
