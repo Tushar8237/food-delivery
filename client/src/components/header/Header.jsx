@@ -15,7 +15,7 @@ export default function Header() {
 
   useEffect(() => {
     setPopUp(false); // Hide the popup whenever currentUser changes
-  }, [location]);
+  }, [location, currentUser]);
 
   const handlePopUp = () => {
     if (currentUser) {
@@ -27,7 +27,7 @@ export default function Header() {
     try {
       await fetch("api/auth/signout");
       dispatch(signOut());
-      navigate('/')
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -38,19 +38,18 @@ export default function Header() {
       <img src={coverImg} alt="cover" className="header_cover" />
       <section className="header_section">
         <div className="header_topSection">
-     
-            <Link to="/" className="header_logo">
-              <h2 variant="body1" color="white" fontWeight="bold">
-                fooD deliverY
-              </h2>
-            </Link>
-         
-
+          <Link to="/" className="header_logo">
+            <h2>fooD deliverY</h2>
+          </Link>
           {currentUser ? (
             <div className="header_right">
-              <Link className="header_add_restro">
-                <p>Add Restaurant</p>
-              </Link>
+              {currentUser?.restaurant?.length >= 1 ? (
+                ""
+              ) : (
+                <Link to="add-restaurant" className="header_add_restro">
+                  <p>Add Restaurant</p>
+                </Link>
+              )}
               <img
                 src={
                   currentUser.profilePicture
@@ -69,7 +68,7 @@ export default function Header() {
           )}
         </div>
 
-        <div div className="header_bottomSection">
+        <div className="header_bottomSection">
           <h2>FOOD</h2>
           <p>Discover the best food & drinks in Nagpur</p>
           <div>

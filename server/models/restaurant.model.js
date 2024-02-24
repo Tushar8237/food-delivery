@@ -11,8 +11,11 @@ const restaurantSchema = new mongoose.Schema({
         city: String,
         state: String,
         zip: String,
-        // require : true,
     },
+    categories: {
+        type: [String],
+        required: true
+      },
     phoneNumber : {
         type : String,
         require : true
@@ -21,13 +24,22 @@ const restaurantSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    approxTwo : {
+        type: Number,
+        require : true
+    },
     rating: {
         type: Number,
         default: 0
     },
     image : {
         type : String,
-        default: "https://th.bing.com/th/id/R.fa0ca630a6a3de8e33e03a009e406acd?rik=UOMXfynJ2FEiVw&riu=http%3a%2f%2fwww.clker.com%2fcliparts%2ff%2fa%2f0%2fc%2f1434020125875430376profile.png&ehk=73x7A%2fh2HgYZLT1q7b6vWMXl86IjYeDhub59EZ8hF14%3d&risl=&pid=ImgRaw&r=0"
+        default: "https://b.zmtcdn.com/data/pictures/chains/4/19564214/4794803104732db8a06cc1eda6e68ee7.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*"
     },
     reviews: [{
         title: String,
@@ -43,7 +55,15 @@ const restaurantSchema = new mongoose.Schema({
             type : mongoose.Schema.Types.ObjectId,
             ref: "Menu"
         }
-    ]
+    ],
+    openTime: {
+        type: String,
+        require: true
+    },
+    closeTime: {
+        type: String,
+        require: true
+    }
 }, {timestamps: true})
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema )

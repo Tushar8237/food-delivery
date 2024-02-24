@@ -1,0 +1,71 @@
+@import "../../../styles/globalVariable.scss";
+
+.add_res_wrapper {
+    padding: 0;
+}
+
+.add_res_section {
+    margin: 0 auto;
+    max-width: $page-width-xl;
+    padding: 3rem;
+    
+    .add_res_heading {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: rgb(59, 58, 58);
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    form {
+        padding: 2rem 15rem;
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                color: rgb(43, 42, 42);
+                margin: 0.2rem 0;
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            input {
+                padding: 0.8rem 0 0.8rem 0.5rem;
+                outline: none;
+                border: 1px solid rgb(43, 42, 42);
+                margin-bottom: 0.8rem;
+                font-size: 1rem;
+                color: rgb(43, 42, 42);
+            }
+
+            .res_time {
+                width: 15%;
+                padding-right: 0.5rem;
+            }
+        }
+
+        .item_categories {
+            display: flex;
+            flex-direction: row;
+            .categories {
+                margin-right: 1rem;
+            }
+            input {
+                padding: 0.5rem;
+                margin-top: 0.3rem;
+                margin-left: 0.3rem;
+                margin-right: 0.3rem;
+            }
+            label {
+                margin-right: 0.8rem;
+            }
+        }
+
+        .res_submit_btn {
+            padding: 0.5 1rem;
+        }
+    }
+}

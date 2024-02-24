@@ -1,9 +1,18 @@
 import React from "react";
 import "./Checkout.scss";
 import item from "../../assets/restaurants/paneer-tikka.png";
-import { Link } from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../../redux/cart-items/cartSlice";
 export default function Checkout() {
+    const { cart } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+    const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const deliveryFee = 47
+    const platFormFee = 3
+
+    const total = totalPrice + deliveryFee + platFormFee
+
+    
     return (
         <main className="checkout_wrapper">
             <section className="checkout_section">
@@ -19,41 +28,46 @@ export default function Checkout() {
                             </div>
                         </div>
 
-                        <div className="checkout_leftItems">
-                            <div className="checkout_leftItemsLeft">
-                                <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Veg_symbol.svg"
-                                    alt="veg icon"
-                                />
-                                <p>Paneer Tikka Masala</p>
-                            </div>
-                            <div className="checkout_leftItemsRight">
-                                <div>
-                                    <span>-</span>
-                                    <strong>1</strong>
-                                    <span>+</span>
+                        {cart.map((item) => (
+                            <div className="checkout_leftItems" key={item._id}>
+                                <div className="checkout_leftItemsLeft">
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Veg_symbol.svg"
+                                        alt="veg icon"
+                                    />
+                                    <p>{item.name}</p>
                                 </div>
-                                <p>Rs 300</p>
+                                <div className="checkout_leftItemsRight">
+                                    <div>
+                                        <span onClick={() => dispatch(removeFromCart(item))}>
+                                            -
+                                        </span>
+                                        <strong>{item.quantity}</strong>
+                                        <span onClick={() => dispatch(addToCart(item))}>+</span>
+                                    </div>
+                                    <p>Rs{item.price * item.quantity}</p>
+                                </div>
                             </div>
-                        </div>
+                        ))}
+
                         <div className="checkout_leftBill">
                             <p className="checkout_leftBillDetails">Bill Details</p>
                             <div>
                                 <p>Item Total</p>
-                                <span>Rs300</span>
+                                <span>Rs{totalPrice}</span>
                             </div>
                             <div>
                                 <p>Delivery Fee | 4.4 kms</p>
-                                <span>Rs37</span>
+                                <span>Rs{deliveryFee}</span>
                             </div>
                             <div>
                                 <p>Platform fee</p>
-                                <span>3</span>
+                                <span>{platFormFee}</span>
                             </div>
                         </div>
                         <div className="checkout_leftTotal">
                             <span>TOPAY</span>
-                            <span>Rs 341</span>
+                            <span>Rs {total}</span>
                         </div>
                     </div>
                 </div>
@@ -62,11 +76,14 @@ export default function Checkout() {
                     <div className="checkout_rightTop">
                         <div className="checkout_rightDelivery">
                             <h3>Delivery address</h3>
-                            <span style={{
-                                color: "#fc8019",
-                                cursor: "pointer"
-
-                            }} >CHANGE</span>
+                            <span
+                                style={{
+                                    color: "#fc8019",
+                                    cursor: "pointer",
+                                }}
+                            >
+                                CHANGE
+                            </span>
                         </div>
                         <div className="checkout_rightAddress">
                             <h3>Home</h3>

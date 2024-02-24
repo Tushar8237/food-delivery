@@ -1,0 +1,10 @@
+.restroDetails_imgSlider {
+  .restroDetails_imgs {
+    img {
+      height: 20rem;
+      object-fit: cover;
+      border-radius: 1rem;
+      transition: smooth;
+    }
+  }
+}

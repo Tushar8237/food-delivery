@@ -19,6 +19,28 @@
         justify-content: center;
     }
 
+    .cart_right {
+        display: flex;
+        gap: 1rem;
+
+        button {
+            padding: 0.2rem 0.6rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: $white; 
+            font-weight: 500;
+            font-size: 1rem;
+            background: red;
+            border: none;
+            border-radius: 0.2rem;
+        }
+
+        button:hover {
+            color: green;
+            background: $white;
+        }
+    }
+
     .cart_icon {
         width: 1.5rem;
         margin: 0 0.5rem;

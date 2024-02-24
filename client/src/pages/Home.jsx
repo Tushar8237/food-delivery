@@ -1,7 +1,7 @@
 import React from "react";
 import './Home.scss'
 import Banner from "../components/banner/Banner";
-import Restaurants from "./restaurants/Restaurants";
+import Restaurants from './restaurant/restaurants/Restaurants'
 
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-@import "../../styles/globalVariable.scss";
+@import "../../../styles/globalVariable.scss";
 
 .restroDetails_wrapper {
     padding: 0;
@@ -9,16 +9,7 @@
     margin: 0 auto;
     padding: 5rem 15rem 0rem 15rem;
     position: relative;
-
-    .restroDetails_imgs {
-        img {
-            height: 20rem;
-            object-fit: cover;
-            border-radius: 1rem;
-            transition: smooth;
-        }
-    }
-
+    
     .restroDetails_headingWrapper {
         .restroDetails_nameRating {
             display: flex;
@@ -162,94 +153,7 @@
             border-radius: 50%;
         }
     }
-
-    .restroDetails_menuWrapper {
-        .restroDetails_menuItem {
-            -webkit-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
-            -moz-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
-            box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
-            border-radius: 0.7rem;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-
-            .restroDetails_menuItemLeft {
-                padding: 1rem;
-                img {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    object-fit: cover;
-                }
-                h3 {
-                    font-family: "Poppins", sans-serif;
-                    color: rgb(53, 53, 53); 
-                    font-weight: 500;
-                    font-size: 1.3rem;
-                    margin-bottom: 0.2rem;
-                }
-                strong {
-                    font-family: "Poppins", sans-serif;
-                    color: rgb(53, 53, 53); 
-                    font-size: 1.2rem;
-                    margin-bottom: 0.4rem;
-                }
-                p {
-                    color: rgb(53, 53, 53); 
-                    font-size: 1.1rem;
-                    font-weight: 400;
-                    margin-top: 0.4rem;
-                    font-family: "Poppins", sans-serif;
-
-                }
-            }
-
-            .restroDetails_menuItemRight {
-                padding: 1rem;
-                display: flex;
-                flex-direction: column;
-                position: relative;
-                align-items: flex-end;
-                justify-content: flex-end;
-
-                img {
-                    width: 10rem;
-                    border-radius: 0.6rem;
-                }
-
-                .restroDetails_addBtn {
-                    position: absolute;
-                    display: flex;
-                    bottom: 1.3rem;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background-color: $white;
-                    border-radius: 0.5rem;
-
-                    p {
-                        font-family: "Poppins", sans-serif;
-                        color: rgb(53, 53, 53);
-                        font-size: 1.2rem;
-                        margin: 0 0.5rem;
-                    }
-
-                    button {
-                        font-size: 1.5rem;
-                        width: 2.5rem;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border-radius: 0.3rem;
-                        outline: none;
-                        border: none;
-                        color: rgb(53, 53, 53);
-                        cursor: pointer;
-                        background-color: $white;
-                    }
-                }
-            }
-        }
-    }
-
+    
     .restroDetails_cartWrapper {
         position: sticky;
         bottom: 2rem;
@@ -258,7 +162,7 @@
 
 @media only screen and (max-width: 750px) {
     .restroDetails_section {
-        padding: 0 1rem 5rem 1rem;
+        padding: 3rem 1rem;
 
         .restroDetails_menuWrapper {
             .restroDetails_menuItem {
