@@ -157,6 +157,14 @@ export default function AddRestaurant() {
                             onChange={handleCategoryChange}
                         />
                         <label htmlFor="sandwich">Dessert</label>
+
+                        <input
+                            type="checkbox"
+                            name="beverages"
+                            id="beverages"
+                            onChange={handleCategoryChange}
+                        />
+                        <label htmlFor="sandwich">Beverages</label>
                     </div>
                     <div>
                         <label htmlFor="street">Address</label>

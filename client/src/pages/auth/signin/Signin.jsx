@@ -13,6 +13,7 @@ export default function Signin() {
         setFormData({...formData, [e.target.id] : e.target.value})
     }
 
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -73,6 +74,16 @@ export default function Signin() {
                         <span>Sign up</span>
                     </Link>
                 </div>
+
+                <p style={{
+          color: "red",
+          marginTop: "0.4rem",
+          textAlign: "center",
+          fontFamily: "poppins"
+        }}>
+          {/* {error && "Something went wrong!"} */}
+          { error ? error.message || "Something went wrong" : ""}
+          </p>
             </section>
         </main>
     );

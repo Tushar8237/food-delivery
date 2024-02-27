@@ -1,5 +1,14 @@
 import Restaurant from '../models/restaurant.model.js';
 import User from '../models/user.model.js';
+import { v2 as cloudinary } from 'cloudinary'
+
+// configure cloudinary 
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+})
+
 
 // create restaurant
 export const createRestaurants = async (req, res, next) => {
@@ -11,7 +20,26 @@ export const createRestaurants = async (req, res, next) => {
         .join('-')
         .toLowerCase()
         .replace(/[^a-zA-Z0-9-]/g, '')
-        const newRestaurant = new Restaurant({name, address, categories, phoneNumber, owner, openTime, closeTime, approxTwo, slug, rating})
+
+        // Upload image to cloudinary
+        const imageUploadResult = await cloudinary.uploader.upload(req.file.path, {
+            folder: 'food-delivery'
+        })
+        
+        // create new restaurant
+        const newRestaurant = new Restaurant({
+            name, 
+            address, 
+            categories, 
+            phoneNumber, 
+            owner, 
+            openTime, 
+            closeTime,
+            approxTwo, 
+            slug, 
+            rating,
+            image: imageUploadResult.secure_url
+        })
         const restaurant = await newRestaurant.save()
         const user = await User.findById(req.user.id)
         user.restaurant.push(restaurant._id)
@@ -59,3 +87,5 @@ export const getMyRestaurant = async (req, res, next) => {
         next(error)
     }
 }
+
+

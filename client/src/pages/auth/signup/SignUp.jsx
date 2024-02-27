@@ -14,7 +14,6 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       setLoading(true);
       setError(false);
@@ -29,7 +28,8 @@ export default function SignUp() {
       const data = await res.json();
       setLoading(false);
       if (data.success === false) {
-        setError(true);
+        // setError(true);
+        setError(data)
         return;
       }
       navigate("/sign-in");
@@ -38,6 +38,8 @@ export default function SignUp() {
       setError(true);
     }
   };
+
+  console.log(error)
   
   return (
     <main className="signin_wrapper">
@@ -81,6 +83,15 @@ export default function SignUp() {
             <span>Sign in</span>
           </Link>
         </div>
+        <p style={{
+          color: "red",
+          marginTop: "0.4rem",
+          textAlign: "center",
+          fontFamily: "poppins"
+        }}>
+          {/* {error && "Something went wrong!"} */}
+          {error.message}
+          </p>
       </section>
     </main>
   );

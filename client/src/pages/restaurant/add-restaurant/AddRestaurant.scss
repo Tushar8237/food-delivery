@@ -50,6 +50,7 @@
         .item_categories {
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             .categories {
                 margin-right: 1rem;
             }

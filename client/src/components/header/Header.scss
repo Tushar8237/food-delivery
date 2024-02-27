@@ -3,9 +3,7 @@
 .header_wrapper {
   padding: 0;
   position: relative;
-  // margin-bottom: 10rem;
-  // margin-bottom: 5rem;
-
+  
   .header_cover {
     height: 30rem;
     width: 100%;
@@ -48,7 +46,7 @@
     .header_right {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.5rem;
 
       .header_add_restro {
         text-decoration: none;
@@ -125,6 +123,7 @@
 
       .header_bottomLeft {
         max-width: 22%;
+       
         input {
           font-family: "Poppins", sans-serif;
           font-weight: 400;
@@ -134,11 +133,13 @@
           font-size: 0.9rem;
           width: 100%;
         }
-
-        img {
-          width: 1.2rem;
-          height: 1.2rem;
+        
+        .header_map_icon {
+          width: 1.3rem;
+          height: 1.3rem;
           margin-right: 0.5rem;
+          margin-bottom: 0.2rem;
+          color: rgb(111, 39, 39);
         }
       }
 
@@ -223,3 +224,5 @@
     }
   }
 }
+
+

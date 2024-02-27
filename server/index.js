@@ -5,6 +5,7 @@ import authRoutes from './routes/auth.routes.js'
 import restaurantRoute from './routes/restaurant.routes.js'
 import menuItemRoute from './routes/menuItem.routes.js'
 import cookieParser from 'cookie-parser'
+import fileUpload from 'express-fileupload'
 
 dotenv.config()
 
@@ -17,6 +18,10 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 const app = express()
 app.use(express.json());
 app.use(cookieParser());
+app.use(fileUpload({
+    useTempFiles: true
+}))
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`)

@@ -1,9 +1,9 @@
 import React from "react";
 import "./Cart.scss";
 import { Link } from "react-router-dom";
-import { getIconPath, IconName } from "../../utils/getIconPath";
 import { clearCart } from "../../redux/cart-items/cartSlice";
 import { useDispatch } from "react-redux";
+import { BsBagCheck } from "react-icons/bs";
 
 export default function Cart({ cartItems }) {
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ export default function Cart({ cartItems }) {
           }}
         >
           <span>
-            <strong>VIEW CART</strong>
-            <img  src={getIconPath(IconName.CART)} alt="Cart Imag"  className="cart_icon"/>
+            <BsBagCheck className="cart_icon" />
+            <span>VIEW CART</span>
           </span>
         </Link>
         <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
