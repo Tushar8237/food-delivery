@@ -3,18 +3,92 @@
 .my_restro_wrapper{
     padding: 0;
 }
-
 .my_restro_section {
     margin: 0 auto;
     max-width: $page-width-xl;
-    padding: 3rem;
+    padding: 1.5rem;
+
+    .my_restro_details {
+        padding: 0 15rem 1rem 15rem;
+
+        .my_restro_heading {
+            .my_restro_rating {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.5rem;
+        
+                h2 {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                    color: rgb(53, 53, 53); 
+                    font-weight: 600;
+                    font-size: 2rem;
+                }
+        
+                span {
+                    font-family: "Poppins", sans-serif;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 1.5rem;
+                    border-radius: 0.5rem;
+                    font-weight: 600;
+                    color: $white;
+                    background-color: green;
+                    font-size: 1.5rem;
+                }
+            }
+        
+            .my_restro_approx {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.3rem;
+        
+                p,
+                span {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                    color: rgb(53, 53, 53); 
+                    font-weight: 400;
+                    font-size: 1rem;
+                }
+            }
+            .my_restro_address {
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                color: rgb(0, 0, 0); 
+                font-weight: 400;
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+                text-align: left;
+            }
+        
+            .my_restro_open_distance {
+                display: flex;
+                justify-content: space-between;
+        
+                p,
+                span {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                    color: rgb(53, 53, 53); 
+                    font-weight: 400;
+                    font-size: 1rem;
+                }
+            }
+            #my_restro_open {
+                color: rgb(37, 152, 37);
+            }
+        }
+    }
     
-    .my_restro_heading {
+    .my_restro_menu_title {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
         color: rgb(59, 58, 58);
-        font-size: 2.5rem;
-        text-align: center;
+        font-size: 2rem;
+        text-align: left;
+        padding-left: 15rem;
     }
 
     .menu_added_Successfully {
@@ -27,7 +101,7 @@
     }
 
     .my_restro_menu {
-        padding: 2rem 15rem;
+        padding: 1rem 15rem;
 
         div {
             display: flex;
@@ -53,6 +127,39 @@
         
         .res_submit_btn {
             padding: 0.5 1rem;
+        }
+
+        .menu_submit_btn {
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: white;
+            background-color: blue;
+            border-radius: 0.2rem;
+            font-family: "Poppins", sans-serif;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            border: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .my_restro_section {
+       padding: 0;
+       .my_restro_details {
+            padding: 1rem;
+        }
+        .my_restro_menu_title {
+            padding-left: 1rem;
+            font-size: 1.3rem;
+        }
+        .my_restro_menu {
+            padding: 0rem 1rem;
+            
+            .res_submit_btn {
+                padding: 0.5 1rem;
+            }
         }
     }
 }

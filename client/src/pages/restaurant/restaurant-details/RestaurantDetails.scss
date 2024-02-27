@@ -75,7 +75,7 @@
             }
         }
         #restroDetails_open {
-            color: red;
+            color: rgb(37, 152, 37);
         }
     }
 
@@ -162,7 +162,7 @@
 
 @media only screen and (max-width: 750px) {
     .restroDetails_section {
-        padding: 3rem 1rem;
+        padding: 1rem;
 
         .restroDetails_menuWrapper {
             .restroDetails_menuItem {

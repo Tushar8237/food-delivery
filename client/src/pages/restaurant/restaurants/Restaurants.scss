@@ -102,7 +102,7 @@
                 }
             }
             #restaurant_open {
-                color: red;
+                color: rgb(37, 152, 37);
             }
         }
 
@@ -118,6 +118,7 @@
 
 @media only screen and (max-width: 750px) {
     .restaurants_wrapper {
+        padding-bottom: 2rem;
         h2 {
             text-align: center;
         }

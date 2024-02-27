@@ -46,7 +46,7 @@ export default function MenuCard({ item}) {
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     );
 }

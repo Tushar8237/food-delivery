@@ -27,7 +27,7 @@ export default function Header() {
         }
     };
 
-    // sing out
+    // sing out 
     const handleSignOut = async () => {
         try {
             await fetch("api/auth/signout");
@@ -60,10 +60,7 @@ export default function Header() {
         // Call the search function immediately when the component mounts or when the query state changes
         search();
     }, [query]); // The dependency array ensures that this effect runs whenever the 'query' state changes
-
-    // console.log(query)
-    // console.log(suggestions)
-
+    
     return (
         <main className="header_wrapper">
             <img src={coverImg} alt="cover" className="header_cover" />

@@ -13,9 +13,7 @@ import Loading from "./../../../components/loader/Loading";
 export default function Restaurants() {
   const dispatch = useDispatch();
   const { restro, loading, error } = useSelector((state) => state.restro);
-
-  // console.log(restro);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
