@@ -10,9 +10,6 @@ export default function MenuCard({ item, resName, resAddress}) {
     // Find the quantity of the current item in the cart
     const itemInCart = cart.find(cartItem => cartItem._id === item._id);
     const itemQuantity = itemInCart ? itemInCart.quantity : 0;
-
-    console.log(resName)
-    console.log(resAddress)
     
     return (
         <div className="restroDetails_menuWrapper" key={item._id}>

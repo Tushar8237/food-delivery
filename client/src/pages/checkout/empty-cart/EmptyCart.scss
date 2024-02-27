@@ -1,0 +1,30 @@
+.empty_cart {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem 0;
+
+    h2 {
+        font-family: "poppins";
+        color: "rgb(88, 87, 87)";
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-family: "poppins";
+        color: "rgb(51, 50, 50)";
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width:750px) {
+    .empty_cart {
+        padding: 3rem 1rem;
+        img {
+            width: 100%;
+        }
+    }
+}

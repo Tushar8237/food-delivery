@@ -12,20 +12,15 @@ export default function MyRestro({ id }) {
     price: "",
     image: "",
   });
-  console.log(menuItems);
-
   const { restro, loading, error } = useSelector((state) => state.restro);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setMenuItems({ ...menuItems, [name]: value });
   };
-
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     setMenuItems({ ...menuItems, image: file });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -62,7 +57,7 @@ export default function MyRestro({ id }) {
         <div className="my_restro_details">
           {restro?.restros?.map((res) =>
             res._id === id ? (
-              <div className="my_restro_heading">
+              <div className="my_restro_heading" key={res._id}>
                 <div className="my_restro_rating">
                   <h2>{res.name}</h2>
                   <span>{res.rating}.5</span>
