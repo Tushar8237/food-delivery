@@ -5,14 +5,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/cart-items/cartSlice";
 export default function Checkout() {
     const { cart } = useSelector((state) => state.cart);
+    const { restro } = useSelector((state) => state.restro);
     const dispatch = useDispatch();
     const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     const deliveryFee = 47
     const platFormFee = 3
-
+    
     const total = totalPrice + deliveryFee + platFormFee
 
-    
+    const menuId = cart?.map((item) => item._id)
+    const restaurantWithMenu = restro?.restros?.find(restaurant => 
+        restaurant.menu.some(menuItem => menuItem._id === menuId[0])
+    );
     return (
         <main className="checkout_wrapper">
             <section className="checkout_section">
@@ -23,8 +27,14 @@ export default function Checkout() {
                                 <img src={item} alt="Restaurant Image" />
                             </div>
                             <div>
-                                <h3>Bouffage</h3>
-                                <span>Dharampeth</span>
+                                <h3>{
+                                    restaurantWithMenu.name
+                                    }</h3>
+                                <span>
+                                    {
+                                        restaurantWithMenu.address.street
+                                    }
+                                </span>
                             </div>
                         </div>
 

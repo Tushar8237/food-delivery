@@ -3,8 +3,7 @@ import "./MenuCard.scss";
 import { addToCart, removeFromCart } from "../../../../redux/cart-items/cartSlice";
 import { useDispatch, useSelector } from 'react-redux'
 
-export default function MenuCard({ item}) {
-    const [itemCount, setItemCount] = useState(0);
+export default function MenuCard({ item, resName, resAddress}) {
     const dispatch = useDispatch()
     const { cart } = useSelector((state) => state.cart)
     
@@ -12,7 +11,8 @@ export default function MenuCard({ item}) {
     const itemInCart = cart.find(cartItem => cartItem._id === item._id);
     const itemQuantity = itemInCart ? itemInCart.quantity : 0;
 
-    console.log(cart)
+    console.log(resName)
+    console.log(resAddress)
     
     return (
         <div className="restroDetails_menuWrapper" key={item._id}>

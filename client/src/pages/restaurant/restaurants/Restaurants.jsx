@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./Restaurants.scss";
-import img from "../../../assets/restaurants/buffage.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {

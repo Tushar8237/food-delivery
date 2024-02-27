@@ -16,8 +16,6 @@ import { useSelector } from 'react-redux'
 function App() {
   const { currentUser } = useSelector((state) => state.user)
   
-
-  console.log(currentUser)
   return (
     <BrowserRouter>
       <Header />

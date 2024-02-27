@@ -21,7 +21,7 @@ export default function RestaurantDetails() {
                             <div className="restroDetails_headingWrapper">
                                 <div className="restroDetails_nameRating">
                                     <h2>{res.name}</h2>
-                                    <span>{res.rating}.5</span>
+                                    <span>{res.rating}</span>
                                 </div>
                                 <div className="restroDetails_itemApprox">
                                     <p>{res.categories}</p>
@@ -49,7 +49,7 @@ export default function RestaurantDetails() {
                             </div>
 
                             {res.menu?.map((item) => (
-                                <MenuCard key={item._id} item={item}/>
+                                <MenuCard key={item._id} item={item} resName={res.name} resAddress={res.address.street}/>
                             ))}
                         </React.Fragment>
                     ) : (

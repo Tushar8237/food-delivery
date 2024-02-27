@@ -6,6 +6,7 @@ export default function Banner() {
     <div
       style={{
         width: "100%",
+        marginTop: "1rem"
       }}
     >
       <img
