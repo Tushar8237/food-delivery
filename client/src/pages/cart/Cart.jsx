@@ -7,6 +7,7 @@ import { BsBagCheck } from "react-icons/bs";
 
 export default function Cart({ cartItems }) {
   const dispatch = useDispatch();
+  
   return (
     <div className="cart_wrapper">
       {cartItems.length ? <p>{cartItems.length} items added</p> : ""}

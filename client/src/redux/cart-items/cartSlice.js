@@ -9,14 +9,14 @@ const cartSlice = createSlice({
     initialState,
     reducers : {
         addToCart: (state, action) => {
-            const { _id, name, price } = action.payload;
+            const { _id, name, price, restaurantId} = action.payload;
             const existingItemIndex = state.cart.findIndex((cartItem) => cartItem._id === _id);
             if (existingItemIndex !== -1) {
                 // If the item already exists in the cart, increase its quantity by 1
                 state.cart[existingItemIndex].quantity += 1;
             } else {
                 // If the item doesn't exist in the cart, add it to the cart with a quantity of 1
-                state.cart.push({ _id, name, price, quantity: 1 });
+                state.cart.push({ _id, name, price, restaurantId, quantity: 1 });
             }
         },
         removeFromCart: (state, action) => {
@@ -40,5 +40,4 @@ const cartSlice = createSlice({
 })
 
 export const { addToCart, clearCart, removeFromCart } = cartSlice.actions
-
 export default cartSlice.reducer

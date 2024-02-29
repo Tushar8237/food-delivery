@@ -61,6 +61,7 @@ export const addMenuItems = async (req, res, next) => {
           price,
           category,
           image: uploadedResponse.secure_url,
+          restaurantId : restaurant._id
         });
         const menuItem = await newMenuItem.save();
         restaurant.menu.push(menuItem._id);

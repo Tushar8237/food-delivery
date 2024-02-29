@@ -49,7 +49,7 @@ export default function RestaurantDetails() {
                             </div>
 
                             {res.menu?.map((item) => (
-                                <MenuCard key={item._id} item={item} resName={res.name} resAddress={res.address.street}/>
+                                <MenuCard key={item._id} item={item} />
                             ))}
                         </React.Fragment>
                     ) : (
@@ -58,7 +58,7 @@ export default function RestaurantDetails() {
                 )}
                 {cart.length ? (
                     <div className="restroDetails_cartWrapper">
-                        <Cart cartItems={cart}/>
+                        <Cart cartItems={cart} />
                     </div>
                 ) : (
                     ""

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./MyRestro.scss";
 import { useSelector } from "react-redux";
+import Menu from "./my-menu/Menu";
 
 export default function MyRestro({ id }) {
   const [menuData, setMenuData] = useState({});
@@ -77,6 +78,7 @@ export default function MyRestro({ id }) {
                   <p id="my_restro_open">Opens at {res.openTime}</p>
                   <span>3.8 km</span>
                 </div>
+                <Menu res={res}/>
               </div>
             ) : (
               ""
