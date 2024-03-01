@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/auth.routes.js'
 import restaurantRoute from './routes/restaurant.routes.js'
 import menuItemRoute from './routes/menuItem.routes.js'
+import addressRoute from './routes/address.routes.js'
 import cookieParser from 'cookie-parser'
 import fileUpload from 'express-fileupload'
 
@@ -22,7 +23,6 @@ app.use(fileUpload({
     useTempFiles: true
 }))
 
-
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`)
 })
@@ -30,8 +30,7 @@ app.listen(process.env.PORT, () => {
 app.use('/api/auth', authRoutes)
 app.use('/api/restaurant', restaurantRoute)
 app.use('/api/restaurant', menuItemRoute)
-
-
+app.use('/api/restaurant', addressRoute)
 
 
 app.use((err, req, res, next) => {

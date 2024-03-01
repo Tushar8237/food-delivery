@@ -1,5 +1,78 @@
 @import '../../../../styles/globalVariable.scss';
 
+.menu_wrapper {
+    .update_menu_model {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 61%;
+        padding: 1rem;
+        background-color: $white;
+        height: 90vh;
+        border-radius: 0.5rem;
+        -webkit-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
+        -moz-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
+        box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
+
+
+        .update_model_close {
+            float: right;
+            padding: 0.2rem 0.5rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid grey;
+            font-weight: 400;
+            font-family: "Poppins", sans-serif;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+
+            input {
+                width: 70%;
+                padding: 0.8rem 0.5rem;
+                border: 0.1px solid gray;
+                margin: 0.5rem 0;
+                font-size: 1rem;
+                font-family: "Poppins", sans-serif;
+                outline: none;
+            }
+
+            .update_menu_submit_btn {
+                font-family: "Poppins", sans-serif;
+                color: $white;
+                font-weight: 500;
+                border-radius: 0.5rem;
+                border: 1px solid rgba(0,0,0,0);
+                cursor: pointer;
+                font-size: 1.5rem;
+                padding: 0.5rem 1rem;
+                margin-top: 2rem;
+                background-color: rgb(33, 166, 33);
+            }
+
+            .menu_update_Successfully {
+                color: rgb(22, 108, 22);
+                font-size: 1.2rem;
+                font-weight: 500;
+                text-align: center;
+                margin-top: 1rem;
+                font-family: "Poppins", sans-serif;
+            }
+        }
+    }
+}
+
+
+
+
 .menu_details {
     -webkit-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
     -moz-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);

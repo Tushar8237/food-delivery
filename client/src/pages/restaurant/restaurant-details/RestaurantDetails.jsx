@@ -33,7 +33,7 @@ export default function RestaurantDetails() {
                                         Rs{res.approxTwo} for two
                                     </span>
                                 </div>
-                                <p className="restroDetails_address">{res.address.street}</p>
+                                <p className="restroDetails_address">{res?.street}</p>
                                 <div className="restroDetails_openDistance">
                                     <p id="restroDetails_open">Opens at {res.openTime}</p>
                                     <span>3.8 km</span>

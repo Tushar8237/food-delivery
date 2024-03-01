@@ -4,11 +4,13 @@ import storage from "redux-persist/lib/storage";
 import userReducer from './user/userSlice'
 import restroReducer from './restaurants/restaurantsSlice'
 import cartReducer from './cart-items/cartSlice'
+import updateReducer from './update-menu/menuUpdateSlice'
 
 const rootReducer = combineReducers({
     user : userReducer,
     restro : restroReducer,
     cart : cartReducer,
+    menuItem : updateReducer,
 })
 
 const persisConfig = {

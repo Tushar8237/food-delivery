@@ -6,11 +6,27 @@ const restaurantSchema = new mongoose.Schema({
         require : true,
         unique : true
     },
-    address : {
-        street: String,
-        city: String,
-        state: String,
-        zip: String,
+    // address : {
+    //     street: String,
+    //     city: String,
+    //     state: String,
+    //     zip: String,
+    // },
+    street: {
+        type: String,
+        require: true
+    },
+    city: {
+        type: String,
+        require: true
+    },
+    state: {
+        type: String,
+        require: true
+    },
+    zip: {
+        type: String,
+        require: true
     },
     categories: {
         type: [String],

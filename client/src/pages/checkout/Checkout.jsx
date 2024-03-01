@@ -47,8 +47,8 @@ export default function Checkout() {
                                             : ""}
                                     </h3>
                                     <span>
-                                        {restaurantWithMenu && restaurantWithMenu.address.street
-                                            ? restaurantWithMenu.address.street
+                                        {restaurantWithMenu && restaurantWithMenu.street
+                                            ? restaurantWithMenu.street
                                             : ""}
                                     </span>
                                 </div>
