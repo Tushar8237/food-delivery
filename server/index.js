@@ -32,13 +32,12 @@ app.use('/api/restaurant', restaurantRoute)
 app.use('/api/restaurant', menuItemRoute)
 app.use('/api/restaurant', addressRoute)
 
-
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Internal Server error';
     return res.status(statusCode).json({
-        success : false,
+        success: false,
         message,
         statusCode
-    })
-})
+    });
+}); 

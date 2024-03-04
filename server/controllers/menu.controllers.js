@@ -20,7 +20,7 @@ export const searchItems = async (req, res, next) => {
     const item = await MenuItem.find({ name: regex }).limit(10);
 
     if (!item || item.length === 0) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         message: "No items were Found",
       });
@@ -34,7 +34,6 @@ export const searchItems = async (req, res, next) => {
     next(error);
   }
 };
-
 
 // add menu item 
 export const addMenuItems = async (req, res, next) => {

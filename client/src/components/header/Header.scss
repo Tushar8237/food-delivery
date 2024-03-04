@@ -2,44 +2,40 @@
 
 .header_wrapper {
   padding: 0;
-  position: relative;
-  
-  .header_cover {
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-  }
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 96;
+  background: $white;
 }
 
 .header_section {
   max-width: $page-width-xl;
   margin: 0 auto;
-  height: 30rem;
-  position: relative;
+  padding: 0.5rem 0;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 
   .header_topSection {
     display: flex;
-    padding: 1.2rem 8rem;
+    padding: 0rem 8rem;
     align-items: center;
     justify-content: space-between;
 
     .header_logo {
       text-decoration: none;
       color: $white;
-      font-size: 2.5rem;
 
       h2 {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
-        color: $white;
-        font-size: 2.5rem;
+        color: rgb(97, 95, 95);
+        font-size: 2rem;
         cursor: pointer;
+      }
+      .header_log_title {
+        display: none;
       }
     }
 
@@ -53,22 +49,22 @@
         p {
           font-family: "Poppins", sans-serif;
           font-weight: 600;
-          color: rgb(255, 255, 255);
+          color: rgb(118, 115, 115);
           margin: 0.2rem 0;
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
     }
 
     .header_signin {
       text-decoration: none;
-        p {
-          font-family: "Poppins", sans-serif;
-          font-weight: 500;
-          color: rgb(255, 255, 255);
-          margin: 0.2rem 0;
-          font-size: 1rem;
-        }
+      p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: rgb(129, 126, 126);
+        margin: 0.2rem 0;
+        font-size: 1rem;
+      }
     }
 
     .header_userIcon {
@@ -84,7 +80,7 @@
       p {
         font-family: "Poppins", sans-serif;
         font-weight: 400;
-        color: $white;
+        color: rgb(139, 138, 138);
         cursor: pointer;
       }
     }
@@ -95,22 +91,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 3rem;
-
-    h2 {
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      color: $white;
-      font-size: 4rem;
-    }
-
-    p {
-      font-family: "Poppins", sans-serif;
-      font-weight: 300;
-      color: $white;
-      font-size: 2.2rem;
-      margin: 1rem 0;
-    }
+    width: 55%;
 
     div {
       background-color: $white;
@@ -119,11 +100,12 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      width: 50%;
+      width: 100%;
 
       .header_bottomLeft {
-        max-width: 22%;
-       
+        max-width: 30%;
+        border: 1px solid gainsboro;
+
         input {
           font-family: "Poppins", sans-serif;
           font-weight: 400;
@@ -132,8 +114,9 @@
           border: none;
           font-size: 0.9rem;
           width: 100%;
+          padding: 0.2rem;
         }
-        
+
         .header_map_icon {
           width: 1.3rem;
           height: 1.3rem;
@@ -145,6 +128,7 @@
 
       .header_bottomRight {
         width: 100%;
+        border: 1px solid gainsboro;
 
         .header_searchBarIcon {
           width: 1.5rem;
@@ -157,9 +141,10 @@
           font-weight: 400;
           color: gray;
           outline: none;
-          border: none;
           font-size: 0.9rem;
           width: 100%;
+          padding: 0.2rem;
+          border: none;
         }
       }
     }
@@ -173,6 +158,8 @@
     background: $white;
     padding: 1rem;
     border-radius: 0.5rem;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+      -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 
     .header_profile {
       text-decoration: none;
@@ -182,6 +169,10 @@
         color: rgb(43, 42, 42);
         margin: 0.2rem 0;
       }
+    }
+
+    .mobile_add_restro {
+      display: none;
     }
 
     button {
@@ -195,44 +186,70 @@
 }
 
 @media only screen and (max-width: 750px) {
-  .header_wrapper {
-    .header_cover {
-      height: 22rem;
-    }
-  }
   .header_section {
-    height: 22rem;
     .header_topSection {
-      padding: 1rem 1rem 0 1rem;
-
-      .header_logo{
+      padding: 0 1rem 0 1rem;
+      .header_logo {
         h2 {
-          font-size: 1.5rem;
+          display: none;
         }
-
+        .header_log_title {
+          display: flex;
+          font-size: 1rem;
+        }
+      }
+    }
+    .header_right {
+      p {
+        display: none;
       }
     }
     .header_bottomSection {
-      margin-top: 1rem;
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 2rem;
-        margin: 1rem;
-        text-align: center;
-      }
-
+      width: 70%;
       div {
-        width: 80%;
+        .header_bottomLeft {
+          max-width: 35%;
+          input {
+            font-size: 0.8rem;
+            padding: 0.1rem;
+          }
+          .header_map_icon {
+            width: 1.1rem;
+            height: 1.1rem;
+            margin-right: 0.1rem;
+          }
+        }
+
+        .header_bottomRight {
+          width: 60%;
+          border: 1px solid gainsboro;
+          .header_searchBarIcon {
+            width: 1.1rem;
+            height: 1.1rem;
+            margin-right: 0.1rem;
+          }
+          input {
+            font-size: 0.8rem;
+            padding: 0.1rem;
+          }
+        }
       }
     }
     .header_popUp {
       right: 1rem;
+
+      .mobile_add_restro {
+        display: flex;
+        .header_add_restro {
+          text-decoration: none;
+          p {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: rgb(43, 42, 42);
+            margin: 0.2rem 0;
+          }
+        }
+      }
     }
   }
 }
-
-

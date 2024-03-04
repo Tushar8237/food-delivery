@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import {singInStart, singInSuccess, singInFailure } from '../../../redux/user/userSlice'
+import OAuth from "../../../components/o-auth/OAuth";
 
 export default function Signin() {
     const [formData, setFormData] = useState({});
@@ -61,11 +62,12 @@ export default function Signin() {
                     >
                         {loading ? "Loading..." : "Sign In"}
                     </button>
-                    <button
+                    {/* <button
                         disabled={loading}
                     >
                         Continue with google
-                    </button>
+                    </button> */}
+                    <OAuth />
                 </form>
 
                 <div>

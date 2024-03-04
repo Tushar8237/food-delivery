@@ -1,0 +1,88 @@
+@import '../../../styles/globalVariable.scss';
+
+.search_items_wrapper{
+    padding: 0;
+    position: fixed;
+    top: 5rem;
+    right: 0;
+    left: 0;
+    z-index: 96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_items_section {
+    top: 5rem;
+    padding: 1rem 1rem;
+    width: 54%;
+    margin-left: 10rem;
+    background: rgb(225, 224, 224);
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.3rem;
+
+
+    .search_items_link {
+        text-decoration: none;
+    }
+
+    .search_items_card {
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        background: $white;
+        font-family: "Poppins", sans-serif;
+        border-radius: 0.5rem;
+        color: rgb(91, 90, 90);
+
+        .search_items_res_title {
+            border-bottom: 2px solid rgb(168, 167, 167);
+            padding: 0.5rem 0 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                font-family: "Poppins", sans-serif;
+                color: #686b78;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            span {
+                background: green;
+                color: $white;
+                font-weight: 600;
+                border-radius: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.5rem;
+                height: 1.8rem;
+            }
+        }
+
+        .search_items_menu_card {
+            margin: 0.5rem 0;
+            -webkit-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
+            -moz-box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
+            box-shadow: inset 0px 1px 15px -2px rgba(0,0,0,0.35);
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 0.2rem;
+            align-items: center;
+
+
+            img {
+                width: 3rem;
+                height: 3rem;
+                object-fit: cover;
+                border-radius: 0.2rem;
+            }
+
+
+        }
+    }
+}
