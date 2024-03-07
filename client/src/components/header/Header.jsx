@@ -6,6 +6,7 @@ import { signOut } from "../../redux/user/userSlice";
 import { CiSearch } from "react-icons/ci";
 import { FaRegCircleUser } from "react-icons/fa6";
 import SearchItem from "./search-items/SearchItem";
+import { clearCart } from "../../redux/cart-items/cartSlice";
 
 export default function Header() {
     const { currentUser } = useSelector((state) => state.user);
@@ -17,8 +18,9 @@ export default function Header() {
     const location = useLocation();
     
     useEffect(() => {
-        setPopUp(false); 
-    }, [location, currentUser]);
+        setPopUp(false);
+        setSuggestion([])
+    }, [location, currentUser, setSuggestion]);
 
     const handlePopUp = () => {
         if (currentUser) {
@@ -31,6 +33,7 @@ export default function Header() {
         try {
             await fetch("api/auth/signout");
             dispatch(signOut());
+            dispatch(clearCart())
             navigate("/");
         } catch (error) {
             console.log(error);

@@ -9,7 +9,7 @@ export default function SearchItem({ suggestions }) {
   // Check if suggestions exist before filtering
   const filteredRestaurants = suggestions
     ? restro.restros.filter((restaurant) =>
-        suggestions.some((item) => restaurant._id === item.restaurantId)
+        suggestions.some((item) => restaurant._id === item.restaurantId) 
       )
     : [];
     

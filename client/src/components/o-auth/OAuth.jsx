@@ -40,5 +40,5 @@ export default function OAuth() {
             console.log("could not login with google", error);
         }
     };
-    return <button  onClick={handleGoogleClick} className="google_auth_btn">Continue with google</button>;
+    return <button type="button" onClick={handleGoogleClick} className="google_auth_btn">Continue with google</button>;
 }

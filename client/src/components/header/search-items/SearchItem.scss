@@ -86,3 +86,24 @@
         }
     }
 }
+
+@media only screen and (max-width: 750px) {
+    .search_items_section {
+        padding: 0.5rem 0.5rem;
+        width: 100%;
+        margin-left: 0rem;
+        grid-template-columns: repeat(1, 1fr);
+        
+        .search_items_card {
+            .search_items_res_title {
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+            .search_items_menu_card {
+                margin: 0.3rem 0;
+               
+            }
+        }
+    }
+}

@@ -4,23 +4,19 @@ import { errorHandler } from "../utils/error.js";
 // save address
 export const saveAddress = async (req, res, next) => {
     try {
-        const {flatNo, street, city, type, coordinates } = req.body;
+        const { flatNo, street, city, number, type } = req.body;
         const userId = req.user.id;
         const address = new Address({
             flatNo,
             street,
             city,
+            number,
             type,
-            location: {
-                type: 'Point',
-                coordinates
-            },
             user: userId
         });
 
         const savedAddress = await address.save();
-        res.status(201).json(savedAddress);
-
+        
         res.status(201).json({
             success: true,
             message: "Address save successfully",

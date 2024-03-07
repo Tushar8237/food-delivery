@@ -12,6 +12,7 @@ import AddRestaurant from "./pages/restaurant/add-restaurant/AddRestaurant";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Loading from "./components/loader/Loading";
 import { useSelector } from 'react-redux'
+import OrderSuccess from "./components/order-success/OrderSuccess";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user)
@@ -34,6 +35,7 @@ function App() {
           <Route path="/my-restaurant" element={<MyRestro id={currentUser?.restaurant[0]} />} />
           <Route path="/add-restaurant" element={<AddRestaurant />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
         </Route>
       </Routes>
     </BrowserRouter>

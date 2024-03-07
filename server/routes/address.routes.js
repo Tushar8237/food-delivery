@@ -4,10 +4,8 @@ import { deleteAddress, getAllAddresses, saveAddress } from '../controllers/addr
 
 const router = express.Router()
 
-router.post('/address', verifyToken, saveAddress)
-router.get('/address', verifyToken, getAllAddresses)
-router.delete('/:id', verifyToken, deleteAddress)
-
-
+router.post('/save-address', verifyToken, saveAddress)
+router.get('/all-address', verifyToken, getAllAddresses)
+router.delete('/delete-address/:id', verifyToken, deleteAddress)
 
 export default router

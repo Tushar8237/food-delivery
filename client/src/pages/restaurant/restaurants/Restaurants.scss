@@ -8,6 +8,11 @@
   align-items: center;
   padding: 1rem;
 
+  #restaurants_near {
+    display: none;
+  }
+
+
   .restaurants_top {
     display: flex;
     width: 100%;
@@ -205,6 +210,30 @@
 @media only screen and (max-width: 750px) {
   .restaurants_wrapper {
     padding-bottom: 2rem;
+
+    #restaurants_near {
+      display: flex;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      color: black;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .restaurants_clear_filter {
+      justify-content: center;
+    }
+
+    .restaurants_mid {
+      flex-direction: column;
+
+      h2 {
+        text-align: center;
+        display: none;
+      }
+    }
+
 
     .restaurants_top {
       gap: 2rem;

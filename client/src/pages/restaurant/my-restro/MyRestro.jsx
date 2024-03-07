@@ -3,6 +3,9 @@ import { useState } from "react";
 import "./MyRestro.scss";
 import { useSelector } from "react-redux";
 import Menu from "./my-menu/Menu";
+import veg from '../../../assets/food-type-veg.jpg'
+import nonVeg from '../../../assets/food-type-non-veg.jpg'
+
 
 export default function MyRestro({ id }) {
     const [menuData, setMenuData] = useState({});
@@ -13,6 +16,7 @@ export default function MyRestro({ id }) {
         category: "",
         price: "",
         image: "",
+        foodType: ""
     });
     const { restro } = useSelector((state) => state.restro);
 
@@ -25,8 +29,6 @@ export default function MyRestro({ id }) {
         setMenuItems({ ...menuItems, image: file });
     };
 
-    console.log(loading)
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -37,6 +39,7 @@ export default function MyRestro({ id }) {
             formData.append("category", menuItems.category);
             formData.append("price", menuItems.price);
             formData.append("image", menuItems.image);
+            formData.append("foodType", menuItems.foodType);
 
             const res = await fetch(`/api/restaurant/add-menu/${id}`, {
                 method: "POST",
@@ -149,6 +152,44 @@ export default function MyRestro({ id }) {
                             value={menuItems.image ? menuItems.image[0] : ""}
                             onChange={handleFileInputChange}
                         />
+                    </div>
+
+                    <div>
+                        <label htmlFor="rating">Food Type</label>
+                        <div className="menu_food_type">
+                            <span>
+                               
+                                
+                                <input
+                                    type="radio"
+                                    name="foodType"
+                                    value="Veg"
+                                    checked={menuItems.foodType === "Veg"}
+                                    onChange={handleInputChange}
+                                />
+                                <img
+                                    src={veg}
+                                    alt="food type"
+                                />
+                                 veg
+                            </span>
+                            <span>
+                               
+                                
+                                <input
+                                    type="radio"
+                                    name="foodType"
+                                    value="Non Veg"
+                                    checked={menuItems.foodType === "Non Veg"}
+                                    onChange={handleInputChange}
+                                />
+                                <img
+                                    src={nonVeg}
+                                    alt="food type"
+                                />
+                                 Non veg
+                            </span>
+                        </div>
                     </div>
                     <button className="menu_submit_btn" type="submit">
                         {loading ? "Sending Data..." : "Submit Menu Details"}

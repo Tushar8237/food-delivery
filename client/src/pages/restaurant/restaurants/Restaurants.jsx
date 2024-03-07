@@ -266,13 +266,14 @@ export default function Restaurants() {
         ))}
       </div>
 
+
       {activeFilter && (
         <div className="restaurants_clear_filter">
           <button onClick={() => showRestaurantByItems("All")}>
            Clear Filter: {activeFilter}
           </button>
         </div>
-      )}
+      )} 
 
       <div className="restaurants_mid">
         <h2>Popular restaurants near you </h2>
@@ -282,6 +283,9 @@ export default function Restaurants() {
           onClick={handleToggleClick}
         />
       </div>
+
+      <h2 id="restaurants_near">Popular restaurants near you </h2>
+
 
       <div className="restaurant_cardWrapper">
         {loading ? (

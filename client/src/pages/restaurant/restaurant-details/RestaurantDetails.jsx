@@ -10,7 +10,12 @@ export default function RestaurantDetails() {
     const { slug } = useParams();
     const { restro, loading, error } = useSelector((state) => state.restro);
     const { cart } = useSelector((state) => state.cart);
-    
+    const [showVeg, setShowVeg] = useState(false)
+
+    const handleToggle = () => {
+        setShowVeg(!showVeg)
+    }
+
     return (
         <main className="restroDetails_wrapper">
             <section className="restroDetails_section">
@@ -43,13 +48,14 @@ export default function RestaurantDetails() {
                             <div className="restroDetails_toggleBtn">
                                 <p>Veg Only</p>
                                 <label className="switch">
-                                    <input type="checkbox" />
+                                    <input type="checkbox" checked={showVeg} onChange={handleToggle}/>
                                     <span className="slider round"></span>
                                 </label>
                             </div>
-
-                            {res.menu?.map((item) => (
-                                <MenuCard key={item._id} item={item} />
+                            {res.menu
+                                .filter((item) => !showVeg || item.foodType === "Veg") // Filter based on showVeg state
+                                .map((item) => (
+                                    <MenuCard key={item._id} item={item} />
                             ))}
                         </React.Fragment>
                     ) : (

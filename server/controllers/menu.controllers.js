@@ -38,7 +38,7 @@ export const searchItems = async (req, res, next) => {
 // add menu item 
 export const addMenuItems = async (req, res, next) => {
   try {
-    const { name, description, price, category } = req.body;
+    const { name, description, price, category, foodType } = req.body;
     const restaurant = await Restaurant.findById(req.params.id);
     const file = req.files.image
     if (!restaurant) {
@@ -60,6 +60,7 @@ export const addMenuItems = async (req, res, next) => {
           price,
           category,
           image: uploadedResponse.secure_url,
+          foodType,
           restaurantId : restaurant._id
         });
         const menuItem = await newMenuItem.save();
@@ -80,7 +81,7 @@ export const addMenuItems = async (req, res, next) => {
 // update menu item
 export const updateMenuItem = async (req, res, next) => {
   try {
-    const {name, description, price, category } = req.body
+    const {name, description, price, category, foodType } = req.body
     const menuItem = await MenuItem.findById(req.params.id);
     const restaurant = await Restaurant.findById(req.params.res);
     
@@ -105,6 +106,7 @@ export const updateMenuItem = async (req, res, next) => {
     menuItem.description = description;
     menuItem.price = price;
     menuItem.category = category;
+    menuItem.foodType = foodType;
 
     // check if there is a new image uploaded
     if(req.files && req.files.image) {

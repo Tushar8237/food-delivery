@@ -123,6 +123,28 @@
                 font-size: 1rem;
                 color: rgb(43, 42, 42);
             }
+
+            .menu_food_type {
+                span {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    max-width: fit-content;
+                    gap: 0.5rem;
+                    font-family: "Poppins", sans-serif;
+                    img {
+                        width: 1.2rem;
+                    }
+                    input {
+                        margin-top: 0.5rem;
+                        height: 1.3rem;
+                        width: 1.3rem;
+                        align-items: center; 
+                    }
+
+                   
+                }
+            }
         }
         
         .res_submit_btn {

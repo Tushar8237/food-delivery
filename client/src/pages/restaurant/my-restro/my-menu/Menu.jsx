@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Menu.scss";
 import { useSelector } from "react-redux";
 import { updateStart } from "../../../../redux/update-menu/menuUpdateSlice";
+import veg from '../../../../assets/food-type-veg.jpg'
+import nonVeg from '../../../../assets/food-type-non-veg.jpg'
 
 export default function Menu({ res }) {
     const { currentUser } = useSelector((state) => state.user);
@@ -10,7 +12,7 @@ export default function Menu({ res }) {
     const [data, setData] = useState("");
     const [loading, setLoading] = useState(false);
     const [showModel, setShowModel] = useState(false);
-
+    
     const handleDeleteMenuItem = async (resId, itemId) => {
         try {
             if (!currentUser) {
@@ -76,10 +78,20 @@ export default function Menu({ res }) {
         }
     };
 
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setEditedItem({ ...editedItem, [name]: value });
+    // };
+
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setEditedItem({ ...editedItem, [name]: value });
+        const { name, value, type, checked } = e.target;
+        const newValue = type === "checkbox" ? checked : value;
+        setEditedItem(prevState => ({
+            ...prevState,
+            [name]: newValue,
+        }));
     };
+    
 
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
@@ -162,6 +174,41 @@ export default function Menu({ res }) {
                             id="image"
                             onChange={handleFileInputChange}
                         />
+
+                        <div className="menu_food_type">
+                            <span>
+                                <input
+                                    type="radio"
+                                    name="foodType"
+                                    id="foodType"
+                                    // value={editedItem.foodType}
+                                    value="Veg"
+                                    checked={editedItem.foodType === "Veg"}
+                                    onChange={handleInputChange}
+                                />
+                                <img
+                                    src={veg}
+                                    alt="food type"
+                                />
+                                 veg
+                            </span>
+                            <span>
+                                <input
+                                    type="radio"
+                                    name="foodType"
+                                    id="foodType"
+                                    // value={editedItem.foodType}
+                                    value="Non Veg"
+                                    checked={editedItem.foodType === "Non Veg"}
+                                    onChange={handleInputChange}
+                                />
+                                <img
+                                    src={nonVeg}
+                                    alt="food type"
+                                />
+                                 Non veg
+                            </span>
+                        </div>
                         <button className="update_menu_submit_btn" type="submit">
                             {loading ? "Loading" : "Submit Details"}
                         </button>

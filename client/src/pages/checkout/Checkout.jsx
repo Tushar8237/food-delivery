@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Checkout.scss";
 import item from "../../assets/restaurants/paneer-tikka.png";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,6 +6,7 @@ import { addToCart, removeFromCart } from "../../redux/cart-items/cartSlice";
 import Address from "./address/Address";
 import EmptyCart from "./empty-cart/EmptyCart";
 export default function Checkout() {
+    const [selectAddress, setSelectAddress] = useState({})
     const { cart } = useSelector((state) => state.cart);
     const { restro } = useSelector((state) => state.restro);
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function Checkout() {
     const restaurantWithMenu = restro?.restros?.find((restaurant) =>
         restaurant.menu.some((menuItem) => menuItem._id === menuId[0])
     );
-
+    
     return (
         <main className="checkout_wrapper">
             {cart.length ? (
@@ -33,7 +34,7 @@ export default function Checkout() {
                                 <div>
                                     <img
                                         src={
-                                            restaurantWithMenu && restaurantWithMenu.image
+                                            restaurantWithMenu && restaurantWithMenu.image 
                                                 ? restaurantWithMenu.image
                                                 : item
                                         }
@@ -97,7 +98,7 @@ export default function Checkout() {
                             </div>
                         </div>
                     </div>
-                    <Address />
+                    <Address setSelectAddress={setSelectAddress}/>
                 </section>
             ) : (
                 <EmptyCart />

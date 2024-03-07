@@ -5,11 +5,13 @@ import {
     removeFromCart,
 } from "../../../../redux/cart-items/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import veg from '../../../../assets/food-type-veg.jpg'
+import nonVeg from '../../../../assets/food-type-non-veg.jpg'
 
 export default function MenuCard({ item }) {
     const dispatch = useDispatch();
     const { cart } = useSelector((state) => state.cart);
-
+    
     // Find the quantity of the current item in the cart
     const itemInCart = cart.find((cartItem) => cartItem._id === item._id);
     const itemQuantity = itemInCart ? itemInCart.quantity : 0;
@@ -30,15 +32,25 @@ export default function MenuCard({ item }) {
             }
         }
     };
-    
+
     return (
         <div className="restroDetails_menuWrapper" key={item._id}>
             <div className="restroDetails_menuItem">
                 <div className="restroDetails_menuItemLeft">
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Veg_symbol.svg"
-                        alt=""
-                    />
+                    {
+                        item.foodType === "Veg" ? (
+                            <img
+                                src={veg}
+                                alt="food type"
+                            />
+
+                        ) : (
+                            <img
+                                src={nonVeg}
+                                alt="food type"
+                            />
+                        )
+                    }
                     <h3>{item.name}</h3>
                     <strong>Rs {item.price}</strong>
                     <p className="description">
