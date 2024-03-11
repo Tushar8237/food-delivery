@@ -5,7 +5,7 @@ import { createRestaurants, getMyRestaurant, getRestaurants } from '../controlle
 
 const router = express.Router()
 
-router.get('/', verifyToken, getRestaurants)
+router.get('/', getRestaurants)
 router.post('/create/restaurant', verifyToken, createRestaurants)
 router.get('/my-restro/:id', verifyToken, getMyRestaurant)
 

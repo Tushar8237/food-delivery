@@ -65,8 +65,6 @@ export default function Signin() {
             dispatch(singInFailure(error));
         }
     };
-
-    console.log(error)
     
     return (
         <main className="signin_wrapper">

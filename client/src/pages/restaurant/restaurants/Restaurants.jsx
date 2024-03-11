@@ -137,7 +137,7 @@ export default function Restaurants() {
         {loading ? (
           <Loading />
         ) : (
-          filteredRestaurants.map((res) => (
+          filteredRestaurants?.map((res) => (
             <Link
               to={`/restaurant-details/${res?.city.toLowerCase()}/${res.slug}`}
               className="restaurant_cardLink"
