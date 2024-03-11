@@ -1,11 +1,11 @@
-// update user
 import { errorHandler } from './../utils/error.js';
 import User from './../models/user.model.js';
 import { v2 as cloudinary } from "cloudinary";
 import dotenv from "dotenv";
+import bcryptjs from "bcryptjs";
+
 
 dotenv.config();
-
 // configure cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -28,6 +28,7 @@ export const getUser = async (req, res, next) => {
     }
 }
 
+// update user
 export const updateUser = async (req, res, next) => {
     try {
         const user = await User.findById(req.params.id);

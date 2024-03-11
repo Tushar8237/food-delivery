@@ -32,10 +32,7 @@ export default function Checkout() {
 
     const { username, ...rest} = currentUser
     const { _id, ...restData } = restaurantWithMenu
-
-    console.log(_id)
-
-
+    
     const handleSubmitOrder = async () => {
         try {
             // order data

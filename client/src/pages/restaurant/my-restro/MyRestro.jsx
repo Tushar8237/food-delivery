@@ -21,6 +21,8 @@ export default function MyRestro() {
     });
     const { restro } = useSelector((state) => state.restro);
     const { userData } = useSelector((state) => state.user);
+    const { currentUser } = useSelector((state) => state.user)
+    const resId = currentUser.restaurant[0]
     const id = userData?.user?.restaurant[0]
     const navigate = useNavigate()
 
@@ -32,6 +34,8 @@ export default function MyRestro() {
         const file = e.target.files[0];
         setMenuItems({ ...menuItems, image: file });
     };
+
+    const currentUserAndUpdatedUser = id === undefined ? (resId === undefined ? "" : resId) : id;
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -45,7 +49,7 @@ export default function MyRestro() {
             formData.append("image", menuItems.image);
             formData.append("foodType", menuItems.foodType);
 
-            const res = await fetch(`/api/restaurant/add-menu/${id}`, {
+            const res = await fetch(`/api/restaurant/add-menu/${currentUserAndUpdatedUser}`, {
                 method: "POST",
                 body: formData,
             });
@@ -66,13 +70,13 @@ export default function MyRestro() {
             console.error("Error adding Menu Items:", error);
         }
     };
-
+    
     return (
         <main className="my_restro_wrapper">
             <section className="my_restro_section">
                 <div className="my_restro_details">
                     {restro?.restros?.map((res) =>
-                        res._id === id ? (
+                        res._id === currentUserAndUpdatedUser ? (
                             <div className="my_restro_heading" key={res._id}>
                                 <div className="my_restro_rating">
                                     <h2>{res.name}</h2>
@@ -96,7 +100,7 @@ export default function MyRestro() {
                                 <Menu res={res}/>
                             </div>
                         ) : (
-                            ""
+                           ""
                         )
                     )}
                 </div>
@@ -163,9 +167,7 @@ export default function MyRestro() {
                         <label htmlFor="rating">Food Type</label>
                         <div className="menu_food_type">
                             <span>
-                               
-                                
-                                <input
+                               <input
                                     type="radio"
                                     name="foodType"
                                     value="Veg"
@@ -179,8 +181,6 @@ export default function MyRestro() {
                                  veg
                             </span>
                             <span>
-                               
-                                
                                 <input
                                     type="radio"
                                     name="foodType"

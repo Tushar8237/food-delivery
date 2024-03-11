@@ -7,12 +7,20 @@ export const createOrder = async (req, res, next) => {
 
     const restaurant = await Restaurant.findById(restaurantId)
 
+    if (!address) {
+        return res.status(404).json({
+          success: false,
+          message: "Add address or select to place order",
+        });
+    }
+
     if (!restaurant) {
         return res.status(404).json({
           success: false,
           message: "Restaurant not found", 
         });
     }
+
 
     try {
          // Create a new order instance

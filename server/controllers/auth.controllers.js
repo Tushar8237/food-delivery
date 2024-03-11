@@ -24,6 +24,13 @@ export const signup = async (req, res, next) => {
             message: "User created successfully",
         });
     } catch (error) {
+        if (error.code === 11000) {
+            if (error.keyPattern.username) {
+                return next(errorHandler(400, "Username already exists"));
+            } else if (error.keyPattern.email) {
+                return next(errorHandler(400, "Email already exists"));
+            }
+        }
         next(error);
     }
 };

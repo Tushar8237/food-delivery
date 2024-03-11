@@ -34,7 +34,8 @@ export default function Signin() {
              }
              if (!formData.password) {
                  errors.password = "Password is required";
-             } else if (formData.password.length < 8) {
+             } 
+             else if (formData.password.length < 8) {
                  errors.password = 'Password must be at least 8 characters';
              }
              if (Object.keys(errors).length > 0) {
@@ -64,6 +65,8 @@ export default function Signin() {
             dispatch(singInFailure(error));
         }
     };
+
+    console.log(error)
     
     return (
         <main className="signin_wrapper">

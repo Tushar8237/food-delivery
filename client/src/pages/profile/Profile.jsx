@@ -96,14 +96,14 @@ export default function Profile() {
                         onChange={handleChange}
                     />
                     <input
-                        type="text"
+                        type="email"
                         defaultValue={currentUser.email}
                         id="email"
                         placeholder="Email"
                         onChange={handleChange}
                     />
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         placeholder="Password"
                         onChange={handleChange}

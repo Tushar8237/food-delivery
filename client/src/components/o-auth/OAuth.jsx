@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { app } from "../../firebase";
 import "./OAuth.scss";
-import { singInSuccess } from "../../redux/user/userSlice";
+import { getUserSuccess, singInSuccess } from "../../redux/user/userSlice";
 
 
 export default function OAuth() {
@@ -33,6 +33,7 @@ export default function OAuth() {
               });
               const data = await res.json();
             //   console.log(data);
+              dispatch(getUserSuccess(data))
               dispatch(singInSuccess(data));
               navigate('/');
 
