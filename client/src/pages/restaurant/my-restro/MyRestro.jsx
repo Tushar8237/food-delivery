@@ -199,6 +199,7 @@ export default function MyRestro() {
                     <button className="menu_submit_btn" type="submit">
                         {loading ? "Sending Data..." : "Submit Menu Details"}
                     </button>
+                    <p className="menu_added_note">Note: Please wait for five to ten seconds. If it takes too long, log out and log back in..</p>
                 </form>
                 <p className="menu_added_Successfully">
                     {menuData ? menuData.message : ""}

@@ -107,7 +107,7 @@
         border: 1px solid gainsboro;
 
         input {
-          font-family: "Poppins", sans-serif;
+          font-family: "Poppins", sans-serif; 
           font-weight: 400;
           color: gray;
           outline: none;
@@ -205,23 +205,10 @@
       }
     }
     .header_bottomSection {
-      width: 70%;
+      width: 60%;
       div {
-        .header_bottomLeft {
-          max-width: 35%;
-          input {
-            font-size: 0.8rem;
-            padding: 0.1rem;
-          }
-          .header_map_icon {
-            width: 1.1rem;
-            height: 1.1rem;
-            margin-right: 0.1rem;
-          }
-        }
-
-        .header_bottomRight {
-          width: 60%;
+       .header_bottomRight {
+          width: 100%;
           border: 1px solid gainsboro;
           .header_searchBarIcon {
             width: 1.1rem;
@@ -231,6 +218,7 @@
           input {
             font-size: 0.8rem;
             padding: 0.1rem;
+            width: 100%;
           }
         }
       }

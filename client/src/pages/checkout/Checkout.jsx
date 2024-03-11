@@ -31,7 +31,7 @@ export default function Checkout() {
     );
 
     const { username, ...rest} = currentUser
-    const { _id, ...restData } = restaurantWithMenu
+    const { _id, ...restData } = restaurantWithMenu ? restaurantWithMenu : 1
     
     const handleSubmitOrder = async () => {
         try {
