@@ -77,12 +77,7 @@ export default function Menu({ res }) {
             console.log(error.message);
         }
     };
-
-    // const handleInputChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setEditedItem({ ...editedItem, [name]: value });
-    // };
-
+    
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
         const newValue = type === "checkbox" ? checked : value;
@@ -97,7 +92,7 @@ export default function Menu({ res }) {
         const file = e.target.files[0];
         setEditedItem({ ...editedItem, image: file });
     };
-
+    
     return (
         <main className="menu_wrapper">
             <p

@@ -54,7 +54,7 @@ export default function Profile() {
     const handleDeleteAccount = async () => {
         try {
             dispatch(deleteUserStart())
-            const response = await fetch(`/api/user/delete/${currentUser._id_}`, {
+            const response = await fetch(`/api/user/delete/${currentUser._id}`, {
                 method: 'DELETE'
             }) 
             const data = response.json()

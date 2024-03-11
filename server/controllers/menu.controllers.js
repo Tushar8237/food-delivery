@@ -44,7 +44,7 @@ export const addMenuItems = async (req, res, next) => {
     if (!restaurant) {
       return res.status(404).json({
         success: false,
-        message: "Restaurant not found",
+        message: "Restaurant not found", 
       });
     }
     if (file) {
@@ -111,7 +111,7 @@ export const updateMenuItem = async (req, res, next) => {
     // check if there is a new image uploaded
     if(req.files && req.files.image) {
       const file = req.files.image
-      const uploadedResponse = await cloudinary.uploader.upload(file.tempFilePath, {
+      const uploadedResponse = await cloudinary.uploader.upload(file.tempFilePath, { 
         folder: "food-delivery",
         resource_type: "image"
       })
@@ -180,5 +180,22 @@ export const deleteMenuItem = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
+  }
+};
+
+// get menu items by restaurant id
+export const getRestaurantMenu = async (req, res, next) => {
+  try {
+      const resId = req.params.id;
+      
+      // Find all addresses associated with the logged-in user
+      const menuByRestaurant = await MenuItem.find({ restaurantId: resId });
+
+      res.status(200).json({
+          success: true,
+          menuByRestaurant
+      });
+  } catch (error) {
+      next(error)
   }
 };

@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import "./Checkout.scss";
 import item from "../../assets/restaurants/paneer-tikka.png";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../redux/cart-items/cartSlice";
+import { addToCart, clearCart, removeFromCart } from "../../redux/cart-items/cartSlice";
 import Address from "./address/Address";
 import EmptyCart from "./empty-cart/EmptyCart";
+import { useNavigate } from "react-router-dom";
 export default function Checkout() {
     const [selectAddress, setSelectAddress] = useState({})
     const { cart } = useSelector((state) => state.cart);
     const { restro } = useSelector((state) => state.restro);
+    const { currentUser } = useSelector((state) => state.user)
+    const { address } = useSelector((state) => state.address)
+    const [order, setOrder] = useState([])
+
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const totalPrice = cart.reduce(
         (total, item) => total + item.price * item.quantity,
         0
@@ -23,6 +29,45 @@ export default function Checkout() {
     const restaurantWithMenu = restro?.restros?.find((restaurant) =>
         restaurant.menu.some((menuItem) => menuItem._id === menuId[0])
     );
+
+    const { username, ...rest} = currentUser
+    const { _id, ...restData } = restaurantWithMenu
+
+    console.log(_id)
+
+
+    const handleSubmitOrder = async () => {
+        try {
+            // order data
+            const orderData = {
+                username: username,
+                address: selectAddress,
+                cartItems: cart,
+                restaurantId: _id
+            }
+            // make a post request
+            const response = await fetch('/api/create-order', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            })
+
+            if(!response.ok){
+                throw new Error("Failed to submit order")
+            }
+
+            const data = await response.json()
+            if(response.ok){
+                setOrder(data)
+                dispatch(clearCart())
+                navigate("/order-success")
+            }
+        } catch (error) {
+            console.error("failed to place order please try again later")
+        }
+    }
     
     return (
         <main className="checkout_wrapper">
@@ -98,7 +143,7 @@ export default function Checkout() {
                             </div>
                         </div>
                     </div>
-                    <Address setSelectAddress={setSelectAddress}/>
+                    <Address setSelectAddress={setSelectAddress} handleSubmitOrder={handleSubmitOrder}/> 
                 </section>
             ) : (
                 <EmptyCart />

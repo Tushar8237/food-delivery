@@ -50,6 +50,12 @@
             padding-left: 0.7rem;
         }
 
+        p {
+            font-family: "Poppins", sans-serif;
+            color: rgb(138, 21, 21);
+            text-align: left;
+        }
+
         button {
             display: flex;
             align-items: center;
@@ -62,7 +68,7 @@
             border-radius: 1rem;
             border: 1px solid #8F9092;
             transition: all 0.2s ease;
-            font-family: "Source Sans Pro", sans-serif;
+            font-family: "poppins", sans-serif;
             font-size: 1rem;
             font-weight: 600;
             color: #606060;

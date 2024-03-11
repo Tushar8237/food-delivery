@@ -5,9 +5,10 @@ import { useSelector } from "react-redux";
 import Menu from "./my-menu/Menu";
 import veg from '../../../assets/food-type-veg.jpg'
 import nonVeg from '../../../assets/food-type-non-veg.jpg'
+import { useNavigate } from 'react-router-dom';
 
 
-export default function MyRestro({ id }) {
+export default function MyRestro() {
     const [menuData, setMenuData] = useState({});
     const [loading, setLoading] = useState(false)
     const [menuItems, setMenuItems] = useState({
@@ -19,6 +20,9 @@ export default function MyRestro({ id }) {
         foodType: ""
     });
     const { restro } = useSelector((state) => state.restro);
+    const { userData } = useSelector((state) => state.user);
+    const id = userData?.user?.restaurant[0]
+    const navigate = useNavigate()
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -28,7 +32,7 @@ export default function MyRestro({ id }) {
         const file = e.target.files[0];
         setMenuItems({ ...menuItems, image: file });
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -57,6 +61,7 @@ export default function MyRestro({ id }) {
                 category: "",
                 price: "",
             });
+            navigate('/')
         } catch (error) {
             console.error("Error adding Menu Items:", error);
         }
@@ -88,7 +93,7 @@ export default function MyRestro({ id }) {
                                     <p id="my_restro_open">Opens at {res.openTime}</p>
                                     <span>3.8 km</span>
                                 </div>
-                                <Menu res={res} />
+                                <Menu res={res}/>
                             </div>
                         ) : (
                             ""

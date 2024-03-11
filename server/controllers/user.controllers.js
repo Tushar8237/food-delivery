@@ -13,6 +13,20 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
+export const getUser = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (req.user.id !== req.params.id) {
+            return next(errorHandler(401, 'You can update only your profile'));
+        }
+        res.status(200).json({
+            success : true,
+            user
+        });
+    } catch (error) {
+        next(error)
+    }
+}
 
 export const updateUser = async (req, res, next) => {
     try {

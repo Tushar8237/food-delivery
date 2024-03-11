@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { signOut } from "../../redux/user/userSlice";
+import { getUserDataClear, signOut } from "../../redux/user/userSlice";
 import { CiSearch } from "react-icons/ci";
 import { FaRegCircleUser } from "react-icons/fa6";
 import SearchItem from "./search-items/SearchItem";
@@ -16,30 +16,35 @@ export default function Header() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    
+    const { userData } = useSelector((state) => state.user);
+
+
     useEffect(() => {
         setPopUp(false);
-        setSuggestion([])
+        setSuggestion([]);
     }, [location, currentUser, setSuggestion]);
-
+    
     const handlePopUp = () => {
         if (currentUser) {
             setPopUp(!popUp);
         }
     };
 
+    const { _id, ...rest} = currentUser || {}
+
     // sing out
     const handleSignOut = async () => {
         try {
             await fetch("api/auth/signout");
             dispatch(signOut());
-            dispatch(clearCart())
+            dispatch(clearCart());
+            dispatch(getUserDataClear())
             navigate("/");
         } catch (error) {
             console.log(error);
         }
     };
-
+    
     useEffect(() => {
         const search = async () => {
             try {
@@ -58,11 +63,12 @@ export default function Header() {
                 console.log(error); // Log any errors that occur during the search process
             }
         };
-
         // Call the search function immediately when the component mounts or when the query state changes
         search();
     }, [query]); // The dependency array ensures that this effect runs whenever the 'query' state changes
 
+
+    
     return (
         <>
             <main className="header_wrapper">
@@ -95,13 +101,6 @@ export default function Header() {
 
                         {currentUser ? (
                             <div className="header_right">
-                                {currentUser?.restaurant?.length >= 1 ? (
-                                    ""
-                                ) : (
-                                    <Link to="add-restaurant" className="header_add_restro">
-                                        <p>Add Restaurant</p>
-                                    </Link>
-                                )}
                                 <img
                                     src={
                                         currentUser.profilePicture ? (
@@ -148,12 +147,14 @@ export default function Header() {
                                     </Link>
                                 )}
                             </div>
-                            {currentUser.restaurant.length ? (
+                            {userData?.user?.restaurant?.length || userData?.restaurant?.length ? (
                                 <Link to="/my-restaurant" className="header_profile">
                                     <p>My Restaurant</p>
                                 </Link>
                             ) : (
-                                ""
+                                <Link to="add-restaurant" className="header_profile">
+                                    <p>Add Restaurant</p>
+                                </Link>
                             )}
                             <button onClick={handleSignOut}>Log Out</button>
                         </div>

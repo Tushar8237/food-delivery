@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./AddRestaurant.scss";
 import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux";
+import { getUserSuccess, singInSuccess } from "../../../redux/user/userSlice";
 
 export default function AddRestaurant() {
     const [loading, setLoading]= useState(false)
@@ -19,6 +21,10 @@ export default function AddRestaurant() {
         image: "",
 
     });
+    const [error, setError] = useState("")
+    const dispatch = useDispatch()
+    const { currentUser } = useSelector((state) => state.user)
+    const { _id, rest} = currentUser || {}
     
     const navigate = useNavigate()
     const handleInputChange = (e) => {
@@ -59,22 +65,47 @@ export default function AddRestaurant() {
             resData.append("city", formData.city)
             resData.append("state", formData.state)
             resData.append("zip", formData.zip)
+
+            // add restaurant request
             const res = await fetch('/api/restaurant/create/restaurant', {
                 method: 'POST',
                 body: resData,
             })
+
+            // check if adding restaurant was successful 
             if (!res.ok) {
-                throw new Error('Failed to add restaurant');
+                const errorResponse = await res.json(); // Parse error response
+                setError(errorResponse.message); // Set error state with the error message
+                throw new Error(errorResponse.message); // Throw the error
             }
+
+            // parse the response data
             const data = await res.json()
             console.log('Restaurant added:', data);
+
+            // fetch the updated user data from server
+            const updatedUserData = await fetch(`api/user/${_id}`)
+
+            if (!updatedUserData.ok) {
+                throw new Error('Failed to fetch updated user data')
+            }
+
+            // parse the response data
+            const userData = await updatedUserData.json()
+            
+            // Dispatch an action to update the current user
+            dispatch(getUserSuccess(userData))
+            
             if(res.ok){
-                navigate('/my-restaurant')
+                // navigate('/my-restaurant')
+                navigate('/')
             }
         } catch (error) {
             console.error('Error adding restaurant:', error);
         }
     };
+
+    console.log(error)
     
     return (
         <main className="add_res_wrapper">
@@ -92,6 +123,7 @@ export default function AddRestaurant() {
                             id="name"
                             value={formData.name}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div>
@@ -101,9 +133,11 @@ export default function AddRestaurant() {
                             accept="image/*"
                             name="image"
                             id="image"
+                            required
                             value={formData.image ? formData.image[0] : ""}
                             onChange={handleFileInputChange}
                             />
+                            
                         </div>
                    
                     <div>
@@ -114,6 +148,7 @@ export default function AddRestaurant() {
                             id="rating"
                             value={formData.rating}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div className="item_categories">
@@ -183,6 +218,7 @@ export default function AddRestaurant() {
                             placeholder="Street"
                             value={formData.street}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="text"
@@ -191,6 +227,7 @@ export default function AddRestaurant() {
                             placeholder="City"
                             value={formData.city}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="text"
@@ -199,6 +236,7 @@ export default function AddRestaurant() {
                             placeholder="State"
                             value={formData.state}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="text"
@@ -207,6 +245,7 @@ export default function AddRestaurant() {
                             placeholder="Zip"
                             value={formData.zip}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div>
@@ -218,6 +257,7 @@ export default function AddRestaurant() {
                             placeholder="Mobile number at restaurant"
                             value={formData.phoneNumber}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div>
@@ -230,6 +270,7 @@ export default function AddRestaurant() {
                             value={formData.openTime}
                             onChange={handleInputChange}
                             className="res_time"
+                            required
                         />
                     </div>
                     <div>
@@ -241,6 +282,7 @@ export default function AddRestaurant() {
                             value={formData.closeTime}
                             onChange={handleInputChange}
                             className="res_time"
+                            required
                         />
                     </div>
                     <div>
@@ -252,6 +294,7 @@ export default function AddRestaurant() {
                             value={formData.approxTwo}
                             onChange={handleInputChange}
                             className="res_time"
+                            required
                         />
                     </div>
                     <button
@@ -273,6 +316,18 @@ export default function AddRestaurant() {
                        }
                     </button>
                 </form>
+
+                <p
+                    style={{
+                        color: "red",
+                        marginTop: "0.4rem",
+                        textAlign: "center",
+                        fontFamily: "poppins",
+                    }}
+                >
+                    {/* {error && "Something went wrong!"} */}
+                    {error ? error || "Something went wrong" : ""}
+                </p>
             </section>
         </main>
     );

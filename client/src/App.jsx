@@ -5,7 +5,7 @@ import RestaurantDetails from "./pages/restaurant/restaurant-details/RestaurantD
 import ApiDemo from "./components/demo/ApiDemo";
 import Checkout from "./pages/checkout/Checkout";
 import Signin from "./pages/auth/signin/Signin";
-import SignUp from "./pages/auth/signup/SignUp";
+// import SignUp from "./pages/auth/signup/SignUp";
 import Profile from "./pages/profile/Profile";
 import MyRestro from "./pages/restaurant/my-restro/MyRestro";
 import AddRestaurant from "./pages/restaurant/add-restaurant/AddRestaurant";
@@ -13,6 +13,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Loading from "./components/loader/Loading";
 import { useSelector } from 'react-redux'
 import OrderSuccess from "./components/order-success/OrderSuccess";
+import SignUp from "./pages/auth/signup/SignUp";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user)
@@ -23,7 +24,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<Signin />} />
+        {/* <Route path="/sign-up" element={<SignUp />} /> */}
         <Route path="/sign-up" element={<SignUp />} />
+
         <Route
           path="/restaurant-details/:city/:slug"
           element={<RestaurantDetails />}

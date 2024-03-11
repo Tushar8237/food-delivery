@@ -5,12 +5,15 @@ import userReducer from './user/userSlice'
 import restroReducer from './restaurants/restaurantsSlice'
 import cartReducer from './cart-items/cartSlice'
 import updateReducer from './update-menu/menuUpdateSlice'
+import addressReducer from './address/address'
+
 
 const rootReducer = combineReducers({
     user : userReducer,
     restro : restroReducer,
     cart : cartReducer,
     menuItem : updateReducer,
+    address : addressReducer,
 })
 
 const persisConfig = {

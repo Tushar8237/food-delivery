@@ -15,7 +15,7 @@ export default function RestaurantDetails() {
     const handleToggle = () => {
         setShowVeg(!showVeg)
     }
-
+    
     return (
         <main className="restroDetails_wrapper">
             <section className="restroDetails_section">
@@ -40,7 +40,7 @@ export default function RestaurantDetails() {
                                 </div>
                                 <p className="restroDetails_address">{res?.street}</p>
                                 <div className="restroDetails_openDistance">
-                                    <p id="restroDetails_open">Opens at {res.openTime}</p>
+                                    <p id="restroDetails_open">Opens at {res.openTime}</p> 
                                     <span>3.8 km</span>
                                 </div>
                             </div>

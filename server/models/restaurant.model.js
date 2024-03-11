@@ -79,7 +79,13 @@ const restaurantSchema = new mongoose.Schema({
     closeTime: {
         type: String,
         require: true
-    }
+    },
+    orders: [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref: "Order"
+        }
+    ],
 }, {timestamps: true})
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema )

@@ -6,6 +6,8 @@ import restaurantRoute from './routes/restaurant.routes.js'
 import menuItemRoute from './routes/menuItem.routes.js'
 import addressRoute from './routes/address.routes.js'
 import userRoutes from './routes/user.routes.js'
+import orderRoutes from './routes/order.routes.js'
+
 import cookieParser from 'cookie-parser'
 import fileUpload from 'express-fileupload'
 
@@ -33,6 +35,8 @@ app.use('/api/user', userRoutes)
 app.use('/api/restaurant', restaurantRoute)
 app.use('/api/restaurant', menuItemRoute)
 app.use('/api', addressRoute)
+app.use('/api', orderRoutes)
+
 
 
 app.use((err, req, res, next) => {
